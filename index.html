@@ -1,255 +1,275 @@
 <!DOCTYPE html>
-<html>
-<body text="white" style="background-color:black">
-<head>
-  <title>Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators</title>
-</head>
-<p style="font-size:40px; ">How to send any Pokemon from a Gamecube game to Generation 5 with emulators (Windows PC)</p>
-<p>&nbsp;</p>
-<a href="images/poke_journey.png">
-<img src="images/poke_journey.png" alt="Pokejourney" style="width:1440px;">
-</a>
-<p style="font-size:40px; ">What is being emulated?</p>
-<p>&nbsp;</p>
-<p style="font-size:20px; ">The GameCube – Game Boy Advance link cable</p>
-<img src="images/GC-GBA.webp" alt="GC-GBA">
-<p>&nbsp;</p>
-<p style="font-size:20px; ">The DS - GBA dual-slot mode</p>
-<img src="images/DSDualSlot.jpg" alt="DSDualSlot">
-<p>&nbsp;</p>
-<p style="font-size:20px; ">The DS - DS wireless connection</p>
-<img src="images/DSCon.webp" alt="DSCon">
-<p>&nbsp;</p>
-<p style="font-size:30px; ">What you need:</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators"
+    />
+    <title>Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>How to send any Pokemon from a Gamecube game to Generation 5 with emulators (Windows PC)</h1>
 
-<p>1. Colosseum to Gen3 trade</p>
+        <nav class="toc" aria-label="Table of contents">
+          <a href="#overview">Overview</a>
+          <a href="#what-is-being-emulated">What is being emulated?</a>
+          <a href="#what-you-need">What you need</a>
+          <a href="#dolphin_mgba_setup">Chapter 1</a>
+          <a href="#gc_gba_trade">Chapter 2</a>
+          <a href="#melonds_setup">Chapter 3</a>
+          <a href="#gen3_gen4_migration">Chapter 4</a>
+          <a href="#gen4_gen5_migration">Chapter 5</a>
+          <a href="#bonus">Bonus</a>
+          <a href="#future">Possible Future</a>
+          <a href="#thanks">Special Thanks</a>
+        </nav>
+      </div>
+    </header>
 
-<ul><li>Latest <a href="https://dolphin-emu.org/download/" target="_blank">Dolphin</a> development build with integrated mGBA (version 5.0-14690 or later)</li>
-<li><span style="font-weight:700">Pokemon Colosseum</span> or <span style="font-weight:700">Pokemon XD Gale of Darkness</span> game file</li>
-<li>A <span style="font-weight:700">post-game save file of the Gamecube game</span> with at least 6 purified pokemon (the campaign must be completed, which means the final boss, Evice in Colosseum or Greevil in XD, must be defeated)</li>
-<li><a href="https://www.pokemonrng.com/misc-dolphin-gba-bios"  target="_blank">GBA BIOS</a> file</li>
-<li><span style="font-weight:700">Pokemon Gen3 game</span>, preferably Ruby or Sapphire (because Emerald must be postgame to trade with the Gamecube games, FireRed and LeafGreen must be post-game AND have the Sevii Islands subplot completed)</li>
-<li>A <span style="font-weight:700">save file of the Gen3 game</span> with at least 7 pokemon (6 will be migrated plus another one to stay in player’s party)</li>
-</ul>
+    <main class="page container">
+      <article>
+        <section id="overview" class="hero-block">
+          <a href="images/poke_journey.png" target="_blank" rel="noopener noreferrer">
+            <img src="images/poke_journey.png" alt="Pokejourney cover art" class="hero-image" />
+          </a>
+        </section>
 
-<p>2. Gen3 to Gen4 to Gen5 migration</p>
+        <section id="what-is-being-emulated" class="chapter-section">
+          <h2>What is being emulated?</h2>
 
-<ul><li>Latest <a href="https://melonds.kuribo64.net/downloads.php" target="_blank">melonDS</a> (version 0.9.5 or later)</li>
-<li><a href="https://melonds.kuribo64.net/faq.php#Getting_started_with_melonDS">DS BIOS and firmware</a> files</li>
-<li><span style="font-weight:700">Pokemon Gen4 game</span></li>
-<li>A <span style="font-weight:700">save file of the Gen4 game</span> with the Pal Park unlocked (post-game)</li>
-<li><span style="font-weight:700">Pokemon Gen5 game</span></li>
-<li>A <span style="font-weight:700">save file of the Gen5 game</span> with Poke Transfer unlocked (post-game)</li>
-</ul>
+          <div class="figure-block">
+            <p class="figure-label">The GameCube – Game Boy Advance link cable</p>
+            <img src="images/GC-GBA.webp" alt="GameCube to Game Boy Advance link cable" />
+          </div>
 
-<p>&nbsp;</p>
-<p>Why 6 pokemon? Because in both Pal Park (gen 3 to gen 4) and Poke Transfer (gen 4 to gen 5) you must select exactly 6 pokemon.</p>
-<p>&nbsp;</p>
-<h1 id="dolphin_mgba_setup">Chapter 1: Dolphin-mGBA Setup</h1>
-<p>&nbsp;</p>
+          <div class="figure-block">
+            <p class="figure-label">The DS - GBA dual-slot mode</p>
+            <img src="images/DSDualSlot.jpg" alt="Nintendo DS dual-slot mode" />
+          </div>
 
-<ol><li>Set a Game Folder and put the Gamecube game in it</li>
-  <img src="images/dolphin1.png" alt="dolphin1">
-<p>&nbsp;</p>
-<li>Put the save file in the save folder. Dolphin defaults to %AppData%\Dolphin Emulator</li>
+          <div class="figure-block">
+            <p class="figure-label">The DS - DS wireless connection</p>
+            <img src="images/DSCon.webp" alt="Nintendo DS wireless connection" />
+          </div>
+        </section>
 
+        <section id="what-you-need" class="chapter-section">
+          <h2>What you need:</h2>
 
-<ul><li>If you have a CGI file put it in %AppData%\Dolphin Emulator\GC\[REGION]\Card A where REGION is the region of the game (eg. EUR if PAL, USA if NTSC or JAP if NTSC-J). </li>
-<li>If you have a Memory Card raw file, go to Options&gt; Configuration&gt; Gamecube&gt; Device settings and in Slot A select Memory Card. Then, press “...” next to it and select the MemoryCardA.[REGION].raw file.</li>
-</ul>
+          <div class="requirements-block">
+            <p><strong>1. Colosseum to Gen3 trade</strong></p>
+            <ul>
+              <li>Latest <a href="https://dolphin-emu.org/download/" target="_blank" rel="noopener noreferrer">Dolphin</a> development build with integrated mGBA (version 5.0-14690 or later)</li>
+              <li><strong>Pokemon Colosseum</strong> or <strong>Pokemon XD Gale of Darkness</strong> game file</li>
+              <li>A <strong>post-game save file of the Gamecube game</strong> with at least 6 purified pokemon (the campaign must be completed, which means the final boss, Evice in Colosseum or Greivill in XD, must be defeated)</li>
+              <li><a href="https://www.pokemonrng.com/misc-dolphin-gba-bios" target="_blank" rel="noopener noreferrer">GBA BIOS</a> file</li>
+              <li><strong>Pokemon Gen3 game</strong>, preferably Ruby or Sapphire (because Emerald must be postgame to trade with the Gamecube games, FireRed and LeafGreen must be post-game AND have the Sevii Islands subplot completed)</li>
+              <li>A <strong>save file of the Gen3 game</strong> with at least 7 pokemon (6 will be migrated plus another one to stay in player’s party)</li>
+            </ul>
+          </div>
 
-<li>Put the Gen3 GBA game file and the GBA BIOS file in %AppData%\Dolphin Emulator\GBA </li>
-<li>Put the Gen3 GBA save file in the %AppData%\Dolphin Emulator\GBA\Save folder. Then you must rename it from [name].sav to [name]-2.sav (for example rename Pokemon Ruby.sav to Pokemon Ruby-2.sav)</li>
-<li>Go to Options&gt; Configuration&gt; Gamecube&gt; GBA Settings and make sure the BIOS file is selected</li>
-  <img src="images/dolphin2.png" alt="dolphin2">
-<p>&nbsp;</p>
-<li>Go to Options&gt;Controller Settings&gt;Gamecube controllers and in port 2 select GBA (Integrated)</li>
-  <img src="images/dolphin3.png" alt="dolphin3">
-<p>&nbsp;</p>
-<li>Configure both the GC and the GBA input controls making sure they do not overlap</li>
-</ol>
+          <div class="requirements-block">
+            <p><strong>2. Gen3 to Gen4 to Gen5 migration</strong></p>
+            <ul>
+              <li>Latest <a href="https://melonds.kuribo64.net/downloads.php" target="_blank" rel="noopener noreferrer">melonDS</a> (version 0.9.5 or later)</li>
+              <li><a href="https://melonds.kuribo64.net/faq.php#Getting_started_with_melonDS" target="_blank" rel="noopener noreferrer">DS BIOS and firmware</a> files</li>
+              <li><strong>Pokemon Gen4 game</strong></li>
+              <li>A <strong>save file of the Gen4 game</strong> with the Pal Park unlocked (post-game)</li>
+              <li><strong>Pokemon Gen5 game</strong></li>
+              <li>A <strong>save file of the Gen5 game</strong> with Poke Transfer unlocked (post-game)</li>
+            </ul>
+          </div>
 
-<p>&nbsp;</p>
-<h1 id="gc_gba_trade">Chapter 2: GC-GBA Trade</h1>
-<p>&nbsp;</p>
-<p>In the Gamecube game, travel to Phenac City, go west into the Pokemon Center and then go downstairs. There you can talk to the receptionist to start the trade.</p>
-<p>&nbsp;</p>
-<img src="images/image01.png" alt="Phenac">
-<p>&nbsp;</p>
-<img src="images/image02.png" alt="GCGBA">
-<p>&nbsp;</p>
-<p>As the message on the upper-right corner suggests, <span style="font-weight:700">you must save at a Pokemon Center in the GBA game</span>.</p>
-<p>&nbsp;</p>
-<img src="images/image03.png" alt="Pokecentersave">
-<p>&nbsp;</p>
-<p><span>Now, in the GBA screen, right-click, </span><span style="font-weight:700">select “Load ROM…” and load the GBA game</span>. If done correctly, the trade sequence will begin. If the connection fails, try resetting the GBA game.</p>
-<p>&nbsp;</p>
-<img src="images/image04.png" alt="GCGBAtrade">
-<p>&nbsp;</p>
-<p>The 6 Pokemon I chose to send on a journey are:</p>
-<p>The legendary <span style="font-weight:700">Articuno, Zapdos, Moltres and Lugia</span>, which you get at the end of Gale of Darkness. Also, my starter Eevee which evolved into <span style="font-weight:700">Jolteon and a Snorlax</span>.</p>
-<p>&nbsp;</p>
-<img src="images/image05.png" alt="Articuno">
-<p>&nbsp;</p>
-<img src="images/image06.png" alt="Zapdos">
-<p>&nbsp;</p>
-<img src="images/image07.png" alt="Moltres">
-<p>&nbsp;</p>
-<img src="images/image08.png" alt="Lugia">
-<p>&nbsp;</p>
-<img src="images/image09.png" alt="Jolteon">
-<p>&nbsp;</p>
-<img src="images/image10.png" alt="Snorlax">
-<p>&nbsp;</p>
-<img src="images/image11.png" alt="GCGBAtrade1">
-<p>&nbsp;</p>
-<img src="images/image12.png" alt="GCGBAtrade2">
-<p>&nbsp;</p>
-<img src="images/image13.png" alt="GCGBAtrade3">
-<p>&nbsp;</p>
-<img src="images/image14.png" alt="GCGBAtrade4">
-<p>&nbsp;</p>
-<p>Now, you have a Gameboy Advance save file with the 6 Pokemon from Orre!</p>
-<p>&nbsp;</p>
-<img src="images/image15.png" alt="Gen3">
-<p>&nbsp;</p>
-<p><span>To prepare for the GBA-to-DS transfer, you must </span><span style="font-weight:700">delete any HM moves</span><span>&nbsp;from the 6 Pokemon, using the Move Deleter in </span><span>Fuchsia City (Kanto, house next to Pokémon Center) or Lilycove City (Hoenn, house east of the Department Store).</span></p>
-<p>&nbsp;</p>
-<p><span>The last thing to do with mGBA is to </span><span style="font-weight:700">deposit the 6 Pokemon in a box</span><span>&nbsp;and </span><span style="font-weight:700">save the game</span>. </p>
-<p>&nbsp;</p>
-<img src="images/image16.png" alt="Gen3Box">
-<p>&nbsp;</p>
-<h1 id="melonds_setup">Chapter 3: melonDS Setup</h1>
-<p>&nbsp;</p>
-<p>melonDS does not store data in Windows Global User Directory like Dolphin does. It is just an executable that, on first boot, creates an toml file to save settings. So you can have the executable, roms, save files etc. in any folder you want. You can also set paths for each file from the Settings.</p>
-<p>&nbsp;</p>
-<p>For simplicity, put everything in the same folder along with melonDS.exe.</p>
+          <p>Why 6 pokemon? Because in both Pal Park (gen 3 to gen 4) and Poke Transfer (gen 4 to gen 5) you must select exactly 6 pokemon.</p>
+        </section>
 
-<ol><li>Move the GBA game file from %AppData%\Dolphin Emulator\GBA and the GBA save file from %AppData%\Dolphin Emulator\GBA\Save to the melonDS folder.</li>
-<li><span>Rename the GBA save file, removing the “-2”,</span><span style="font-weight:700">&nbsp;</span><span>so that </span><span style="font-weight:700">the GBA game file and the save have the same name. </span><span>For example, if you have “Pokemon FireRed.gba” the save file should be “Pokemon FireRed.sav”. </span><span style="font-weight:700">This is very important or else melonDS won't be able to read the save file</span>.</li>
-<li>Place every other required file (firmware, BIOS, DS games, DS save files) in the folder</li>
-<img src="images/image17.png" alt="melonfolder1">
-<li><span>Launch melonDS.exe and go to Config&gt;Emu Settings&gt;General and </span>uncheck the “Boot game directly” option. </li>
-<li><span>Go to Config&gt;Emu Settings&gt;DS-mode, </span><span style="font-weight:700">check the “Use external BIOS/firmware files”</span>&nbsp;and then select each file by clicking “Browse…”</li>
-<img src="images/image18.png" alt="melonbios">
-<li>Go to Config&gt;Input and Hotkeys and configure the controls.</li>
-</ol>
+        <section id="dolphin_mgba_setup" class="chapter-section">
+          <h2>Chapter 1: Dolphin-mGBA Setup</h2>
 
-<p>&nbsp;</p>
-<h1 id="gen3_gen4_migration">Chapter 4: Gen3 to Gen4 migration</h1>
-<p>&nbsp;</p>
+          <ol>
+            <li>Set a Game Folder and put the Gamecube game in it</li>
+            <img src="images/dolphin1.png" alt="Dolphin game folder setup" />
+            <li>Put the save file in the save folder. Dolphin defaults to %AppData%\Dolphin Emulator</li>
+            <ul>
+              <li>If you have a CGI file put it in %AppData%\Dolphin Emulator\GC\[REGION]\Card A where REGION is the region of the game (eg. EUR if PAL, USA if NTSC or JAP if NTSC-J).</li>
+              <li>If you have a Memory Card raw file, go to Options &gt; Configuration &gt; Gamecube &gt; Device settings and in Slot A select Memory Card. Then, press “...” next to it and select the MemoryCard[REGION].raw file.</li>
+            </ul>
+            <li>Put the Gen3 GBA game file and the GBA BIOS file in %AppData%\Dolphin Emulator\GBA</li>
+            <li>Put the Gen3 GBA save file in the %AppData%\Dolphin Emulator\GBA\Save folder. Then you must rename it from [name].sav to [name]-2.sav (for example rename Pokemon Ruby.sav to Pokemon Ruby-2.sav)</li>
+            <li>Go to Options &gt; Configuration &gt; Gamecube &gt; GBA Settings and make sure the BIOS file is selected</li>
+            <img src="images/dolphin2.png" alt="Dolphin GBA settings" />
+            <li>Go to Options &gt; Controller Settings &gt; Gamecube controllers and in port 2 select GBA (Integrated)</li>
+            <img src="images/dolphin3.png" alt="Dolphin controller settings" />
+            <li>Configure both the GC and the GBA input controls making sure they do not overlap</li>
+          </ol>
+        </section>
 
-<ol><li>Go to File&gt;Insert ROM Cart… and select the GBA rom file. It will then show up in File&gt;GBA Slot.</li>
-<img src="images/image19.png" alt="melongbaslot">
-<p>&nbsp;</p>
-<li>Go to File&gt;Open ROM… and select the Gen4 DS game.</li>
-<li><span>If everything was done correctly, the DS main menu will show up. In the bottom screen, the Gen4 DS game will be displayed and below the</span><span style="font-weight:700">re should be the “Start GBA Game” option enabled</span>. Select the DS game to start it.</li>
-<img src="images/image20.png" alt="dsmenugba">
-<p>&nbsp;</p>
-<li><span>In the game’s main menu, go down until you find the “</span><span style="font-weight:700">Migrate from [GBA game]</span>” and select it</li>
-<img src="images/image21.png" alt="Migratefrom">
-<p>&nbsp;</p>
-<li>Select the 6 pokemon you want to migrate to Gen4. After the game saves, you will be back on the main menu.</li>
-<img src="images/image22.png" alt="Migration1">
-<p>&nbsp;</p>
-<img src="images/image23.png" alt="Migration2">
-<p>&nbsp;</p>
-<img src="images/image24.png" alt="Migration3">
-<p>&nbsp;</p>
-<li><span>Load your save and </span><span style="font-weight:700">go to the Pal Park</span><span>. Pal Park is located at the east end of Route 221 in Sinnoh and in Fuchsia City in place of the Safari Zone in Kanto</span>.</li>
-<img src="images/image25.png" alt="palparksinnoh">
-<p>&nbsp;</p>
-<img src="images/image26.png" alt="palparkkanto">
-<p>&nbsp;</p>
-<li>Talk to the man inside to start a Catching Show where you should catch all six migrated Pokemon around the Pal Park. At the start of the Catching Show, the player is given six Park Balls, a special type of Poké Ball that can only be used during the Catching Show and which never fails.</li>
-<img src="images/image27.png" alt="palparkdesk">
-<p>&nbsp;</p>
-<li>Go around the Pal Park in the grassy areas and the water area until one of the Pokemon shows up and catch it.</li>
-<img src="images/image28.png" alt="palparkcatch">
-<p>&nbsp;</p>
-<li><span>Do the same thing until you find and </span><span style="font-weight:700">catch all 6 Pokemon</span>.</li>
-<img src="images/image29.png" alt="palparkcaught">
-<p>&nbsp;</p>
-<img src="images/image30.png" alt="palparkdone">
-</ol>
-<p>&nbsp;</p>
-<p>Congratulations, the 6 Pokemon have made it to Gen4! Fun fact, because their game of origin isn't mainline, in Summary it shows that the Pokemon originates from a “Distant Land”.</p>
-<img src="images/image31.png" alt="DistantLand">
-<p>&nbsp;</p>
+        <section id="gc_gba_trade" class="chapter-section">
+          <h2>Chapter 2: GC-GBA Trade</h2>
 
-<h1 id="gen4_gen5_migration">Chapter 5: Gen4 to Gen5 migration</h1>
-<p>&nbsp;</p>
-<p>Since melonDS version 0.9.5, there is a local multiplayer option.</p>
+          <p>In the Gamecube game, travel to Phenac City, go west into the Pokemon Center and then go downstairs. There you can talk to the receptionist to start the trade.</p>
+          <img src="images/image01.png" alt="Phenac City" />
+          <img src="images/image02.png" alt="GameCube to GBA trade screen" />
 
-<ol><li><span>Select </span><span style="font-weight:700">System &gt; Multiplayer &gt; Launch new instance</span>&nbsp;and to create a second instance. You can change most settings in the 2nd instance, I recommend changing the inputs so that they are different from instance 1.</li>
-<img src="images/image32.png" alt="melon2instances">
-<p>&nbsp;</p>
-<li>In instance 2, open the Gen5 game and travel to the Poké Transfer Lab in Unova Route 15.</li>
-<img src="images/image33.png" alt="route15">
-<p>&nbsp;</p>
-<li>Talk to the man inside to launch the Poke transfer </li>
-<img src="images/image34.png" alt="ptlab">
-<p>&nbsp;</p>
-<img src="images/image35.png" alt="dsdl">
-<p>&nbsp;</p>
-<li><span>Once you are at the above screen, the Gen5 game is ready to connect with Gen4. Go to instance 1 and open the Gen4 game (reset if you are already in-game). In the DS menu instead of selecting the game, select “</span><span style="font-weight:700">DS Download Play</span>”</li>
-<img src="images/image36.png" alt="dsdl1">
-<p>&nbsp;</p>
-<li><span>Select the “</span><span style="font-weight:700">Poke Transfer</span>” option that shows up. Wait for the downloading process to complete. </li>
-<img src="images/image37.png" alt="dsdl2">
-<p>&nbsp;</p>
-<li>Select the 6 Pokemon<span>. Now a <s>stupid</s> minigame will start, where </span>you must catch the pokemon with a pokeball shooting bow, before the time runs out. If not all six Pokémon are captured within the time limit, the Pokémon not captured will be sent back to the Gen4 game, while those that are caught will be sent to the Gen5 game.</li>
-<img src="images/image38.png" alt="poketransfer">
-<p>&nbsp;</p>
-<img src="images/image39.png" alt="poketransfergame">
-<p>&nbsp;</p>
-<li>After the minigame is completed, the Gen4 game will stop and in the Gen5 game you will be back in the Poké Transfer Lab.</li>
-<img src="images/image40.png" alt="poketransfercomplete">
-<p>&nbsp;</p>
-</ol>
+          <p>As the message on the upper-right corner suggests, <strong>you must save at a Pokemon Center in the GBA game</strong>.</p>
+          <img src="images/image03.png" alt="Pokemon Center save reminder" />
 
-<p>&nbsp;</p>
-<p>And the journey is finished! The 6 Pokemon are in the box!</p>
-<img src="images/image41.png" alt="Gen5box">
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Fun fact: The purified Pokemon have a “National Ribbon”</p>
-<img src="images/image42.png" alt="NationalRibbon">
-<p>&nbsp;</p>
-<p>Important note: melonDS creates new save copies when multiple instances are used. So the save file that the 6 Pokemon are in, will be named [game].sav.2. For example, Pokemon White 2.sav.2. So if you want to use this save file with melonDS first instance (or another emulator), you must remove the “.2” at the end.</p>
-<img src="images/image43.png" alt="melonfolder2">
-<p>&nbsp;</p>
-<p style="font-size:30px;">Bonus Chapter: Pokemon Dream Radar to Gen5 migration</p>
-<p>Pokemon Dream Radar is a 3DS eshop game where you can send captured Pokemon to a Black 2 or White 2 NDS cartridge inserted in the 3DS. The “3DS app to DS cartridge” communication is not properly emulated in Citra, mainly because only Pokemon Dream Radar and Poke Transporter apps use it.</p>
-<p>However, a modder named <a href="https://github.com/zaksabeast/DreamRadarCartRedirect" target="_blank">zaksabeast created a patch</a> that emulates that transfer. Here’s a <a href="https://gbatemp.net/threads/pokemon-dream-radar-cart-redirect-patch-use-save-file-on-sd-instead-of-nds-cart.550958/post-10080260" target="_blank">blog post</a> about it.</p>
-<p>&nbsp;</p>
-<p style="font-size:30px;">Possible Future:</p>
+          <p><span>Now, in the GBA screen, right-click, </span><strong>select “Load ROM…” and load the GBA game</strong>. If done correctly, the trade sequence will begin. If the connection fails, try resetting the GBA game.</p>
+          <img src="images/image04.png" alt="Load ROM trade sequence" />
 
-<ol><li>Gen4 to Pokemon Battle Revolution &amp; My Pokemon Ranch</li>
-<ul><li>Dolphin-melonDS connectivity?</li>
-</ul>
-<li>Poke Transporter - Pokemon Bank / connects Gen1&amp;2 Virtual Console, Gen5, Gen6, Gen7</li>
-<ul>
-<li>Pretendo?</li>
-<li>Bank Offline patch?</li>
-<li>Mikage/Panda3DS?</li>
-</ul>
-<li>Pokemon Home / connects Pokemon Bank, Gen8 and Gen9</li>
-<ul>
-<li>Nintendo Switch Online replacement (like Wiimmfi and Pretendo) in the future</li>
-<li>Home Offline patch?</li>
-</ul>
-</ol>
-<p>&nbsp;</p>
-<p style="font-size:30px;">Special Thanks to:</p>
-<p>Every <a href="https://github.com/dolphin-emu/dolphin/graphs/contributors" target="_blank">Dolphin contributor</a> over the years</p>
-<p><a href="https://github.com/shuffle2" target="_blank">shuffle2</a> and <a href="https://github.com/skidau" target="_blank">skidau</a> for the original Dolphin to VGA-M Emulation
-<p><a href="https://github.com/endrift" target="_blank">endrift</a> for creating <a href="https://mgba.io/" target="_blank"> mGBA</a> and fixing GameCube and Game Boy Advance Communication</p>
-<p><a href="https://github.com/bonta0" target="_blank">bonta0</a> for Dolphin-mGBA Integration</p>
-<p><a href="https://github.com/Arisotura" target="_blank">Arisotura</a> for creating <a href="https://melonds.kuribo64.net/" target="_blank"> melonDS</a> and implementing NDS local multiplayer</p>
-<p><a href="https://github.com/rzumer" target="_blank">rzumer</a> for adding GBA cartridge communication to melonDS</p>
-<p>Every <a href="https://github.com/melonDS-emu/melonDS/graphs/contributors" target="_blank">melonDS contributor</a> over the years</p>
-<p>Every <a href="https://github.com/PabloMK7/citra/graphs/contributors" target="_blank">Citra contributor</a> over the years</p>
-<p><a href="https://github.com/zaksabeast" target="_blank">zaksabeast</a> for the Dream Radar Cart Redirect patch</p>
-</body>
+          <p>The 6 Pokemon I chose to send on a journey are:</p>
+          <p>The legendary <strong>Articuno, Zapdos, Moltres and Lugia</strong>, which you get at the end of Gale of Darkness. Also, my starter Eevee which evolved into <strong>Jolteon and a Snorlax</strong>.</p>
+          <img src="images/image05.png" alt="Articuno" />
+          <img src="images/image06.png" alt="Zapdos" />
+          <img src="images/image07.png" alt="Moltres" />
+          <img src="images/image08.png" alt="Lugia" />
+          <img src="images/image09.png" alt="Jolteon" />
+          <img src="images/image10.png" alt="Snorlax" />
+          <img src="images/image11.png" alt="GCGBA trade screenshot 1" />
+          <img src="images/image12.png" alt="GCGBA trade screenshot 2" />
+          <img src="images/image13.png" alt="GCGBA trade screenshot 3" />
+          <img src="images/image14.png" alt="GCGBA trade screenshot 4" />
+
+          <p>Now, you have a Gameboy Advance save file with the 6 Pokemon from Orre!</p>
+          <img src="images/image15.png" alt="Gen3 save formed" />
+
+          <p><span>To prepare for the GBA-to-DS transfer, you must </span><strong>delete any HM moves</strong><span> from the 6 Pokemon, using the Move Deleter in </span>Fuchsia City (Kanto, house next to Pokemon Center) or Lilycove City (Hoenn, house east of the Department Store).</p>
+          <p><span>The last thing to do with mGBA is to </span><strong>deposit the 6 Pokemon in a box</strong><span> and </span><strong>save the game</strong>.</p>
+          <img src="images/image16.png" alt="Gen3 box save" />
+        </section>
+
+        <section id="melonds_setup" class="chapter-section">
+          <h2>Chapter 3: melonDS Setup</h2>
+
+          <p>melonDS does not store data in Windows Global User Directory like Dolphin does. It is just an executable that, on first boot, creates a toml file to save settings. So you can have the executable, roms, save files etc. in any folder you want. You can also set paths for each file from the Settings.</p>
+          <p>For simplicity, put everything in the same folder along with melonDS.exe.</p>
+
+          <ol>
+            <li>Move the GBA game file from %AppData%\Dolphin Emulator\GBA and the GBA save file from %AppData%\Dolphin Emulator\GBA\Save to the melonDS folder.</li>
+            <li><span>Rename the GBA save file, removing the “-2”,</span><strong> so that the GBA game file and the save have the same name. </strong>For example, if you have “Pokemon FireRed.gba” the save file should be “Pokemon FireRed.sav”. This is very important or else melonDS won’t be able to read the save file.</li>
+            <li>Place every other required file (firmware, BIOS, DS games, DS save files) in the folder</li>
+            <img src="images/image17.png" alt="melonDS folder setup" />
+            <li><span>Launch melonDS.exe and go to Config &gt; Emu Settings &gt; General and </span>uncheck the “Boot game directly” option.</li>
+            <li><span>Go to Config &gt; Emu Settings &gt; DS-mode, </span><strong>check the “Use external BIOS/firmware files”</strong> and then select each file by clicking “Browse”.</li>
+            <img src="images/image18.png" alt="melonDS BIOS setup" />
+            <li>Go to Config &gt; Input and Hotkeys and configure the controls.</li>
+          </ol>
+        </section>
+
+        <section id="gen3_gen4_migration" class="chapter-section">
+          <h2>Chapter 4: Gen3 to Gen4 migration</h2>
+
+          <ol>
+            <li>Go to File &gt; Insert ROM Cart… and select the GBA rom file. It will then show up in File &gt; GBA Slot.</li>
+            <img src="images/image19.png" alt="melonDS GBA slot" />
+            <li>Go to File &gt; Open ROM… and select the Gen4 DS game.</li>
+            <li><span>If everything was done correctly, the DS main menu will show up. In the bottom screen, the Gen4 DS game will be displayed and below there should be the “Start GBA Game” option enabled. Select the DS game to start it.</span></li>
+            <img src="images/image20.png" alt="DS menu with GBA slot active" />
+            <li><span>In the game’s main menu, go down until you find the “</span><strong>Migrate from [GBA game]</strong>” and select it</li>
+            <img src="images/image21.png" alt="Migrate from GBA option" />
+            <li>Select the 6 pokemon you want to migrate to Gen4. After the game saves, you will be back on the main menu.</li>
+            <img src="images/image22.png" alt="Migration step 1" />
+            <img src="images/image23.png" alt="Migration step 2" />
+            <img src="images/image24.png" alt="Migration step 3" />
+            <li><span>Load your save and </span><strong>go to the Pal Park</strong><span>. Pal Park is located at the east end of Route 221 in Sinnoh and in Fuchsia City in place of the Safari Zone in Kanto.</span></li>
+            <img src="images/image25.png" alt="Pal Park in Sinnoh" />
+            <img src="images/image26.png" alt="Pal Park in Kanto" />
+            <li>Talk to the man inside to start a Catching Show where you should catch all six migrated Pokemon around the Pal Park. At the start of the Catching Show, the player is given six Park Balls, a special type of Poké Ball that can only be used during the Catching Show and which never fails.</li>
+            <img src="images/image27.png" alt="Pal Park desk" />
+            <li>Go around the Pal Park in the grassy areas and the water area until one of the Pokemon shows up and catch it.</li>
+            <img src="images/image28.png" alt="Pal Park catch" />
+            <li><span>Do the same thing until you find and </span><strong>catch all 6 Pokemon</strong>.</li>
+            <img src="images/image29.png" alt="Pal Park caught" />
+            <img src="images/image30.png" alt="Pal Park done" />
+          </ol>
+
+          <p>Congratulations, the 6 Pokemon have made it to Gen4! Fun fact, because their game of origin isn't mainline, in Summary it shows that the Pokemon originates from a “Distant Land”.</p>
+          <img src="images/image31.png" alt="Distant Land summary" />
+        </section>
+
+        <section id="gen4_gen5_migration" class="chapter-section">
+          <h2>Chapter 5: Gen4 to Gen5 migration</h2>
+
+          <p>Since melonDS version 0.9.5, there is a local multiplayer option.</p>
+
+          <ol>
+            <li><span>Select </span><strong>System &gt; Multiplayer &gt; Launch new instance</strong> and create a second instance. You can change most settings in the 2nd instance, but I recommend changing the inputs so they are different from instance 1.</li>
+            <img src="images/image32.png" alt="melonDS two instances" />
+            <li>In instance 2, open the Gen5 game and travel to the Poké Transfer Lab in Unova Route 15.</li>
+            <img src="images/image33.png" alt="Route 15" />
+            <li>Talk to the man inside to launch the Poke transfer.</li>
+            <img src="images/image34.png" alt="Poke Transfer lab" />
+            <img src="images/image35.png" alt="DS download screen" />
+            <li><span>Once you are at the above screen, the Gen5 game is ready to connect with Gen4. Go to instance 1 and open the Gen4 game (reset if you are already in-game). In the DS menu instead of selecting the game, select “</span><strong>DS Download Play</strong>”.</li>
+            <img src="images/image36.png" alt="DS Download Play" />
+            <li><span>Select the “</span><strong>Poke Transfer</strong>” option that shows up. Wait for the downloading process to complete.</li>
+            <img src="images/image37.png" alt="Poke Transfer option" />
+            <li>Select the 6 Pokemon. Now a <s>stupid</s> minigame will start, where you must catch the pokemon with a pokeball shooting bow, before the time runs out. If not all six Pokémon are captured within the time limit, the Pokemon not captured will be sent back to the Gen4 game, while those that are caught will be sent to the Gen5 game.</li>
+            <img src="images/image38.png" alt="Poke Transfer minigame" />
+            <img src="images/image39.png" alt="Poke Transfer gameplay" />
+            <li>After the minigame is completed, the Gen4 game will stop and in the Gen5 game you will be back in the Poké Transfer Lab.</li>
+            <img src="images/image40.png" alt="Poke Transfer complete" />
+          </ol>
+
+          <p>And the journey is finished! The 6 Pokemon are in the box!</p>
+          <img src="images/image41.png" alt="Gen5 box" />
+
+          <p>Fun fact: The purified Pokemon have a “National Ribbon”</p>
+          <img src="images/image42.png" alt="National Ribbon" />
+
+          <p>Important note: melonDS creates new save copies when multiple instances are used. So the save file that the 6 Pokemon are in, will be named [game].sav.2. For example, Pokemon White 2.sav.2. So if you want to use this save file with melonDS first instance (or another emulator), you must remove the “.2” at the end.</p>
+          <img src="images/image43.png" alt="melonDS save folder 2" />
+        </section>
+
+        <section id="bonus" class="chapter-section">
+          <h2>Bonus Chapter: Pokemon Dream Radar to Gen5 migration</h2>
+
+          <p>Pokemon Dream Radar is a 3DS eShop game where you can send captured Pokemon to a Black 2 or White 2 NDS cartridge inserted in the 3DS. The “3DS app to DS cartridge” communication is not properly emulated in Citra, mainly because only Pokemon Dream Radar and Poké Transporter apps use it.</p>
+          <p>However, a modder named <a href="https://github.com/zaksabeast/DreamRadarCartRedirect" target="_blank" rel="noopener noreferrer">zaksabeast created a patch</a> that emulates that transfer. Here’s a <a href="https://gbatemp.net/threads/pokemon-dream-radar-cart-redirect-patch-use-save-file-on-sd-instead-of-nds-cart.550958/" target="_blank" rel="noopener noreferrer">blog post</a> about it.</p>
+        </section>
+
+        <section id="future" class="chapter-section">
+          <h2>Possible Future:</h2>
+          <ol>
+            <li>Gen4 to Pokemon Battle Revolution &amp; My Pokemon Ranch
+              <ul>
+                <li>Dolphin-melonDS connectivity?</li>
+              </ul>
+            </li>
+            <li>Poke Transporter - Pokemon Bank / connects Gen1&amp;2 Virtual Console, Gen5, Gen6, Gen7
+              <ul>
+                <li>Pretendo?</li>
+                <li>Bank Offline patch?</li>
+                <li>Mikage/Panda3DS?</li>
+              </ul>
+            </li>
+            <li>Pokemon Home / connects Pokemon Bank, Gen8 and Gen9
+              <ul>
+                <li>Nintendo Switch Online replacement (like Wiimmfi and Pretendo) in the future</li>
+                <li>Home Offline patch?</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section id="thanks" class="chapter-section">
+          <h2>Special Thanks to:</h2>
+          <p>Every <a href="https://github.com/dolphin-emu/dolphin/graphs/contributors" target="_blank" rel="noopener noreferrer">Dolphin contributor</a> over the years</p>
+          <p><a href="https://github.com/shuffle2" target="_blank" rel="noopener noreferrer">shuffle2</a> and <a href="https://github.com/skidau" target="_blank" rel="noopener noreferrer">skidau</a> for the original Dolphin to VGA-M Emulation</p>
+          <p><a href="https://github.com/endrift" target="_blank" rel="noopener noreferrer">endrift</a> for creating <a href="https://mgba.io/" target="_blank" rel="noopener noreferrer">mGBA</a> and fixing GameCube and Game Boy Advance Communication</p>
+          <p><a href="https://github.com/bonta0" target="_blank" rel="noopener noreferrer">bonta0</a> for Dolphin-mGBA Integration</p>
+          <p><a href="https://github.com/Arisotura" target="_blank" rel="noopener noreferrer">Arisotura</a> for creating <a href="https://melonds.kuribo64.net/" target="_blank" rel="noopener noreferrer">melonDS</a> and implementing NDS local multiplayer</p>
+          <p><a href="https://github.com/rzumer" target="_blank" rel="noopener noreferrer">rzumer</a> for adding GBA cartridge communication to melonDS</p>
+          <p>Every <a href="https://github.com/melonDS-emu/melonDS/graphs/contributors" target="_blank" rel="noopener noreferrer">melonDS contributor</a> over the years</p>
+          <p>Every <a href="https://github.com/PabloMK7/citra/graphs/contributors" target="_blank" rel="noopener noreferrer">Citra contributor</a> over the years</p>
+          <p><a href="https://github.com/zaksabeast" target="_blank" rel="noopener noreferrer">zaksabeast</a> for the Dream Radar Cart Redirect patch</p>
+        </section>
+      </article>
+    </main>
+  </body>
 </html>
