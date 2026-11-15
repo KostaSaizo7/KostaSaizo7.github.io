@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators"
-    />
+    <meta name="description" content="Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators" />
     <title>Pokejourney: How to send any Pokemon from a Gamecube game to Generation 5 with emulators</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -14,7 +11,6 @@
     <header class="site-header">
       <div class="container">
         <h1>How to send any Pokemon from a Gamecube game to Generation 5 with emulators (Windows PC)</h1>
-
         <nav class="toc" aria-label="Table of contents">
           <a href="#overview">Overview</a>
           <a href="#what-is-being-emulated">What is being emulated?</a>
@@ -29,49 +25,39 @@
         </nav>
       </div>
     </header>
-
     <main class="page container">
       <article>
         <section id="overview" class="hero-block">
-          <a href="images/poke_journey.png" target="_blank" rel="noopener noreferrer">
-            <img src="images/poke_journey.png" alt="Pokejourney cover art" class="hero-image" />
-          </a>
+          <a href="images/poke_journey.png" target="_blank" rel="noopener noreferrer"><img src="images/poke_journey.png" alt="Pokejourney cover art" class="hero-image" /></a>
         </section>
-
         <section id="what-is-being-emulated" class="chapter-section">
           <h2>What is being emulated?</h2>
-
           <div class="figure-block">
             <p class="figure-label">The GameCube – Game Boy Advance link cable</p>
             <img src="images/GC-GBA.webp" alt="GameCube to Game Boy Advance link cable" />
           </div>
-
           <div class="figure-block">
             <p class="figure-label">The DS - GBA dual-slot mode</p>
             <img src="images/DSDualSlot.jpg" alt="Nintendo DS dual-slot mode" />
           </div>
-
           <div class="figure-block">
             <p class="figure-label">The DS - DS wireless connection</p>
             <img src="images/DSCon.webp" alt="Nintendo DS wireless connection" />
           </div>
         </section>
-
         <section id="what-you-need" class="chapter-section">
           <h2>What you need:</h2>
-
           <div class="requirements-block">
             <p><strong>1. Colosseum to Gen3 trade</strong></p>
             <ul>
               <li>Latest <a href="https://dolphin-emu.org/download/" target="_blank" rel="noopener noreferrer">Dolphin</a> development build with integrated mGBA (version 5.0-14690 or later)</li>
               <li><strong>Pokemon Colosseum</strong> or <strong>Pokemon XD Gale of Darkness</strong> game file</li>
-              <li>A <strong>post-game save file of the Gamecube game</strong> with at least 6 purified pokemon (the campaign must be completed, which means the final boss, Evice in Colosseum or Gr[...]
+              <li>A <strong>post-game save file of the Gamecube game</strong> with at least 6 purified pokemon (the campaign must be completed, which means the final boss, Evice in Colosseum or Greivill in XD, must be defeated)</li>
               <li><a href="https://www.pokemonrng.com/misc-dolphin-gba-bios" target="_blank" rel="noopener noreferrer">GBA BIOS</a> file</li>
-              <li><strong>Pokemon Gen3 game</strong>, preferably Ruby or Sapphire (because Emerald must be postgame to trade with the Gamecube games, FireRed and LeafGreen must be post-game AND ha[...]
+              <li><strong>Pokemon Gen3 game</strong>, preferably Ruby or Sapphire (because Emerald must be postgame to trade with the Gamecube games, FireRed and LeafGreen must be post-game AND have the Sevii Islands subplot completed)</li>
               <li>A <strong>save file of the Gen3 game</strong> with at least 7 pokemon (6 will be migrated plus another one to stay in player’s party)</li>
             </ul>
           </div>
-
           <div class="requirements-block">
             <p><strong>2. Gen3 to Gen4 to Gen5 migration</strong></p>
             <ul>
@@ -83,13 +69,10 @@
               <li>A <strong>save file of the Gen5 game</strong> with Poke Transfer unlocked (post-game)</li>
             </ul>
           </div>
-
           <p>Why 6 pokemon? Because in both Pal Park (gen 3 to gen 4) and Poke Transfer (gen 4 to gen 5) you must select exactly 6 pokemon.</p>
         </section>
-
         <section id="dolphin_mgba_setup" class="chapter-section">
           <h2>Chapter 1: Dolphin-mGBA Setup</h2>
-
           <ol>
             <li>Set a Game Folder and put the Gamecube game in it</li>
             <img src="images/dolphin1.png" alt="Dolphin game folder setup" />
@@ -107,20 +90,15 @@
             <li>Configure both the GC and the GBA input controls making sure they do not overlap</li>
           </ol>
         </section>
-
         <section id="gc_gba_trade" class="chapter-section">
           <h2>Chapter 2: GC-GBA Trade</h2>
-
           <p>In the Gamecube game, travel to Phenac City, go west into the Pokemon Center and then go downstairs. There you can talk to the receptionist to start the trade.</p>
           <img src="images/image01.png" alt="Phenac City" />
           <img src="images/image02.png" alt="GameCube to GBA trade screen" />
-
           <p>As the message on the upper-right corner suggests, <strong>you must save at a Pokemon Center in the GBA game</strong>.</p>
           <img src="images/image03.png" alt="Pokemon Center save reminder" />
-
           <p><span>Now, in the GBA screen, right-click, </span><strong>select “Load ROM…” and load the GBA game</strong>. If done correctly, the trade sequence will begin. If the connection fails, try resetting the GBA game.</p>
           <img src="images/image04.png" alt="Load ROM trade sequence" />
-
           <p>The 6 Pokemon I chose to send on a journey are:</p>
           <p>The legendary <strong>Articuno, Zapdos, Moltres and Lugia</strong>, which you get at the end of Gale of Darkness. Also, my starter Eevee which evolved into <strong>Jolteon and a Snorlax</strong>.</p>
           <img src="images/image05.png" alt="Articuno" />
@@ -133,21 +111,16 @@
           <img src="images/image12.png" alt="GCGBA trade screenshot 2" />
           <img src="images/image13.png" alt="GCGBA trade screenshot 3" />
           <img src="images/image14.png" alt="GCGBA trade screenshot 4" />
-
           <p>Now, you have a Gameboy Advance save file with the 6 Pokemon from Orre!</p>
           <img src="images/image15.png" alt="Gen3 save formed" />
-
           <p><span>To prepare for the GBA-to-DS transfer, you must </span><strong>delete any HM moves</strong><span> from the 6 Pokemon, using the Move Deleter in </span>Fuchsia City (Kanto, house next to Pokemon Center) or Lilycove City (Hoenn, house east of the Department Store).</p>
           <p><span>The last thing to do with mGBA is to </span><strong>deposit the 6 Pokemon in a box</strong><span> and </span><strong>save the game</strong>.</p>
           <img src="images/image16.png" alt="Gen3 box save" />
         </section>
-
         <section id="melonds_setup" class="chapter-section">
           <h2>Chapter 3: melonDS Setup</h2>
-
-          <p>melonDS does not store data in Windows Global User Directory like Dolphin does. It is just an executable that, on first boot, creates a toml file to save settings. So you can have the executable, roms, save files etc. in any folder you want. You can also set paths for each file from the Settings.</p>
+          <p>melonDS does not store data in Windows Global User Directory like Dolphin does. It is just an executable that, on first boot, creates an toml file to save settings. So you can have the executable, roms, save files etc. in any folder you want. You can also set paths for each file from the Settings.</p>
           <p>For simplicity, put everything in the same folder along with melonDS.exe.</p>
-
           <ol>
             <li>Move the GBA game file from %AppData%\Dolphin Emulator\GBA and the GBA save file from %AppData%\Dolphin Emulator\GBA\Save to the melonDS folder.</li>
             <li><span>Rename the GBA save file, removing the “-2”,</span><strong> so that the GBA game file and the save have the same name. </strong>For example, if you have “Pokemon FireRed.gba” the save file should be “Pokemon FireRed.sav”. This is very important or else melonDS won’t be able to read the save file.</li>
@@ -159,10 +132,8 @@
             <li>Go to Config &gt; Input and Hotkeys and configure the controls.</li>
           </ol>
         </section>
-
         <section id="gen3_gen4_migration" class="chapter-section">
           <h2>Chapter 4: Gen3 to Gen4 migration</h2>
-
           <ol>
             <li>Go to File &gt; Insert ROM Cart… and select the GBA rom file. It will then show up in File &gt; GBA Slot.</li>
             <img src="images/image19.png" alt="melonDS GBA slot" />
@@ -186,18 +157,14 @@
             <img src="images/image29.png" alt="Pal Park caught" />
             <img src="images/image30.png" alt="Pal Park done" />
           </ol>
-
           <p>Congratulations, the 6 Pokemon have made it to Gen4! Fun fact, because their game of origin isn't mainline, in Summary it shows that the Pokemon originates from a “Distant Land”.</p>
           <img src="images/image31.png" alt="Distant Land summary" />
         </section>
-
         <section id="gen4_gen5_migration" class="chapter-section">
           <h2>Chapter 5: Gen4 to Gen5 migration</h2>
-
           <p>Since melonDS version 0.9.5, there is a local multiplayer option.</p>
-
           <ol>
-            <li><span>Select </span><strong>System &gt; Multiplayer &gt; Launch new instance</strong> and create a second instance. You can change most settings in the 2nd instance, but I recommend changing the inputs so they are different from instance 1.</li>
+            <li><span>Select </span><strong>System &gt; Multiplayer &gt; Launch new instance</strong> and create a second instance. You can change most settings in the 2nd instance, but I recommend changing the inputs so that they are different from instance 1.</li>
             <img src="images/image32.png" alt="melonDS two instances" />
             <li>In instance 2, open the Gen5 game and travel to the Poké Transfer Lab in Unova Route 15.</li>
             <img src="images/image33.png" alt="Route 15" />
@@ -214,24 +181,18 @@
             <li>After the minigame is completed, the Gen4 game will stop and in the Gen5 game you will be back in the Poké Transfer Lab.</li>
             <img src="images/image40.png" alt="Poke Transfer complete" />
           </ol>
-
           <p>And the journey is finished! The 6 Pokemon are in the box!</p>
           <img src="images/image41.png" alt="Gen5 box" />
-
           <p>Fun fact: The purified Pokemon have a “National Ribbon”</p>
           <img src="images/image42.png" alt="National Ribbon" />
-
           <p>Important note: melonDS creates new save copies when multiple instances are used. So the save file that the 6 Pokemon are in, will be named [game].sav.2. For example, Pokemon White 2.sav.2. So if you want to use this save file with melonDS first instance (or another emulator), you must remove the “.2” at the end.</p>
           <img src="images/image43.png" alt="melonDS save folder 2" />
         </section>
-
         <section id="bonus" class="chapter-section">
           <h2>Bonus Chapter: Pokemon Dream Radar to Gen5 migration</h2>
-
           <p>Pokemon Dream Radar is a 3DS eShop game where you can send captured Pokemon to a Black 2 or White 2 NDS cartridge inserted in the 3DS. The “3DS app to DS cartridge” communication is not properly emulated in Citra, mainly because only Pokemon Dream Radar and Poké Transporter apps use it.</p>
           <p>However, a modder named <a href="https://github.com/zaksabeast/DreamRadarCartRedirect" target="_blank" rel="noopener noreferrer">zaksabeast created a patch</a> that emulates that transfer. Here’s a <a href="https://gbatemp.net/threads/pokemon-dream-radar-cart-redirect-patch-use-save-file-on-sd-instead-of-nds-cart.550958/" target="_blank" rel="noopener noreferrer">blog post</a> about it.</p>
         </section>
-
         <section id="thanks" class="chapter-section">
           <h2>Special Thanks to:</h2>
           <p>Every <a href="https://github.com/dolphin-emu/dolphin/graphs/contributors" target="_blank" rel="noopener noreferrer">Dolphin contributor</a> over the years</p>
