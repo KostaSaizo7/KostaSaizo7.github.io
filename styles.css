@@ -1,0 +1,147 @@
+/* Pokejourney guide styles */
+:root {
+  color-scheme: dark;
+  --page: #10131b;
+  --surface: #191f2c;
+  --surface-raised: #222b3b;
+  --text: #edf2f7;
+  --muted: #b7c1d1;
+  --accent: #70d6b1;
+  --accent-hover: #a0f0d1;
+  --border: #354156;
+  --radius: 14px;
+  --content-width:  min(100% - 2rem, 960px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+
+body {
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem) 1rem;
+  width: 100%;
+  max-width: 1040px;
+  background: var(--page) !important;
+  color: var(--text) !important;
+  font: 1.05rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  max-width: 78ch;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color: #fff;
+}
+
+h1 {
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--border);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+h2 {
+  margin-top: 2.5rem;
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+}
+
+p {
+  margin: 1rem 0;
+}
+
+ul,
+ol {
+  padding: 1rem 1rem 1rem 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+li {
+  padding: 0.25rem 0;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+strong,
+b {
+  color: #fff;
+}
+
+code,
+kbd {
+  padding: 0.15em 0.4em;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface-raised);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+hr {
+  margin: 3rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
