@@ -52,11 +52,16 @@
         margin: 0;
         border: 0;
         border-radius: 0;
-        object-fit: cover;
+        object-fit: fill;
       }
 
       .img-comp-overlay {
         width: 50%;
+      }
+
+      /* Keep the overlay image the full comparison width while its parent clips it. */
+      .img-comp-overlay img {
+        width: var(--comparison-width, 100%);
       }
 
       .img-comp-slider {
@@ -122,11 +127,12 @@
         const images = container.querySelectorAll("img");
         let dragging = false;
 
-        function updateAspectRatio() {
+        function sizeComparison() {
           const reference = images[0];
           if (!reference || !reference.naturalWidth || !reference.naturalHeight) return;
 
           container.style.aspectRatio = `${reference.naturalWidth} / ${reference.naturalHeight}`;
+          container.style.setProperty("--comparison-width", `${container.clientWidth}px`);
         }
 
         function setSliderPosition(clientX) {
@@ -138,21 +144,20 @@
           slider.setAttribute("aria-valuenow", String(Math.round(percentage)));
         }
 
-        function onPointerMove(event) {
-          if (!dragging) return;
-          setSliderPosition(event.clientX);
-        }
-
         slider.addEventListener("pointerdown", (event) => {
           dragging = true;
           slider.setPointerCapture(event.pointerId);
           setSliderPosition(event.clientX);
         });
 
-        slider.addEventListener("pointermove", onPointerMove);
+        slider.addEventListener("pointermove", (event) => {
+          if (dragging) setSliderPosition(event.clientX);
+        });
+
         slider.addEventListener("pointerup", () => {
           dragging = false;
         });
+
         slider.addEventListener("pointercancel", () => {
           dragging = false;
         });
@@ -170,11 +175,12 @@
           }
         });
 
-        window.addEventListener("resize", updateAspectRatio);
-        images.forEach((img) => img.addEventListener("load", updateAspectRatio));
+        window.addEventListener("resize", sizeComparison);
+        images.forEach((image) => image.addEventListener("load", sizeComparison));
 
-        updateAspectRatio();
-        setSliderPosition(container.getBoundingClientRect().left + container.getBoundingClientRect().width * 0.5);
+        sizeComparison();
+        const bounds = container.getBoundingClientRect();
+        setSliderPosition(bounds.left + bounds.width / 2);
       })();
     </script>
   </body>
