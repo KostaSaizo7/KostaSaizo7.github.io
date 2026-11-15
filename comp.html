@@ -1,138 +1,181 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {box-sizing: border-box;}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Compare the old and new renderers side by side."
+    />
+    <title>Renderer comparison | Pokejourney</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        max-width: 1100px;
+      }
 
-.img-comp-container {
-  position: relative;
-  height: 200px; /*should be the same height as the images*/
-}
+      .page {
+        padding-top: 1rem;
+      }
 
-.img-comp-img {
-  position: absolute;
-  width: auto;
-  height: auto;
-  overflow:hidden;
-}
+      .comparison-section {
+        margin-top: 2rem;
+      }
 
-.img-comp-img img {
-  display:block;
-  vertical-align:middle;
-}
+      .img-comp-container {
+        position: relative;
+        width: 100%;
+        max-width: 960px;
+        margin: 1.5rem auto;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--surface);
+        touch-action: pan-y;
+      }
 
-.img-comp-slider {
-  position: absolute;
-  z-index:9;
-  cursor: ew-resize;
-  /*set the appearance of the slider:*/
-  width: 40px;
-  height: 40px;
-  background-color: #2196F3;
-  opacity: 0.7;
-  border-radius: 50%;
-}
-</style>
-<script>
-function initComparisons() {
-  var x, i;
-  /*find all elements with an "overlay" class:*/
-  x = document.getElementsByClassName("img-comp-overlay");
-  for (i = 0; i < x.length; i++) {
-    /*once for each "overlay" element:
-    pass the "overlay" element as a parameter when executing the compareImages function:*/
-    compareImages(x[i]);
-  }
-  function compareImages(img) {
-    var slider, img, clicked = 0, w, h;
-    /*get the width and height of the img element*/
-    w = img.offsetWidth;
-    h = img.offsetHeight;
-    /*set the width of the img element to 50%:*/
-    img.style.width = (w / 2) + "px";
-    /*create slider:*/
-    slider = document.createElement("DIV");
-    slider.setAttribute("class", "img-comp-slider");
-    /*insert slider*/
-    img.parentElement.insertBefore(slider, img);
-    /*position the slider in the middle:*/
-    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-    /*execute a function when the mouse button is pressed:*/
-    slider.addEventListener("mousedown", slideReady);
-    /*and another function when the mouse button is released:*/
-    window.addEventListener("mouseup", slideFinish);
-    /*or touched (for touch screens:*/
-    slider.addEventListener("touchstart", slideReady);
-    /*and released (for touch screens:*/
-    window.addEventListener("touchend", slideFinish);
-    function slideReady(e) {
-      /*prevent any other actions that may occur when moving over the image:*/
-      e.preventDefault();
-      /*the slider is now clicked and ready to move:*/
-      clicked = 1;
-      /*execute a function when the slider is moved:*/
-      window.addEventListener("mousemove", slideMove);
-      window.addEventListener("touchmove", slideMove);
-    }
-    function slideFinish() {
-      /*the slider is no longer clicked:*/
-      clicked = 0;
-    }
-    function slideMove(e) {
-      var pos;
-      /*if the slider is no longer clicked, exit this function:*/
-      if (clicked == 0) return false;
-      /*get the cursor's x position:*/
-      pos = getCursorPos(e)
-      /*prevent the slider from being positioned outside the image:*/
-      if (pos < 0) pos = 0;
-      if (pos > w) pos = w;
-      /*execute a function that will resize the overlay image according to the cursor:*/
-      slide(pos);
-    }
-    function getCursorPos(e) {
-      var a, x = 0;
-      e = (e.changedTouches) ? e.changedTouches[0] : e;
-      /*get the x positions of the image:*/
-      a = img.getBoundingClientRect();
-      /*calculate the cursor's x coordinate, relative to the image:*/
-      x = e.pageX - a.left;
-      /*consider any page scrolling:*/
-      x = x - window.pageXOffset;
-      return x;
-    }
-    function slide(x) {
-      /*resize the image:*/
-      img.style.width = x + "px";
-      /*position the slider:*/
-      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-    }
-  }
-}
-</script>
-</head>
-<body>
+      .img-comp-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
 
-<h1>Compare Two Images</h1>
+      .img-comp-img img {
+        position: absolute;
+        inset: 0 auto auto 0;
+        display: block;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        object-fit: cover;
+      }
 
-<p>Old renderer on the left - New Renderer on the right</p>
+      .img-comp-overlay {
+        width: 50%;
+      }
 
-<div class="img-comp-container">
-  <div class="img-comp-img">
-    <img src="images/dq4b.png" width="960">
-  </div>
-  <div class="img-comp-img img-comp-overlay">
-    <img src="images/dq4a.png" width="960">
-  </div>
-</div>
+      .img-comp-slider {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 42px;
+        height: 42px;
+        transform: translate(-50%, -50%);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+        cursor: ew-resize;
+        touch-action: none;
+      }
 
-<script>
-/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
-initComparisons();
-</script>
+      .img-comp-slider:focus-visible {
+        outline: 3px solid var(--text);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>Compare Two Images</h1>
+      </div>
+    </header>
 
-</body>
+    <main class="page container">
+      <article>
+        <section class="chapter-section comparison-section" aria-labelledby="comparison-title">
+          <h2 id="comparison-title">Renderer comparison</h2>
+          <p>Drag the slider to compare the old renderer on the left with the new renderer on the right.</p>
 
+          <div class="img-comp-container" aria-label="Interactive image comparison">
+            <div class="img-comp-img">
+              <img src="images/dq4b.png" alt="Old renderer" />
+            </div>
+            <div class="img-comp-img img-comp-overlay">
+              <img src="images/dq4a.png" alt="New renderer" />
+            </div>
+            <button
+              class="img-comp-slider"
+              type="button"
+              aria-label="Drag to compare images"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+            ></button>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script>
+      (() => {
+        const container = document.querySelector(".img-comp-container");
+        const overlay = container.querySelector(".img-comp-overlay");
+        const slider = container.querySelector(".img-comp-slider");
+        const images = container.querySelectorAll("img");
+        let dragging = false;
+
+        function updateAspectRatio() {
+          const reference = images[0];
+          if (!reference || !reference.naturalWidth || !reference.naturalHeight) return;
+
+          container.style.aspectRatio = `${reference.naturalWidth} / ${reference.naturalHeight}`;
+        }
+
+        function setSliderPosition(clientX) {
+          const rect = container.getBoundingClientRect();
+          const percentage = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+
+          overlay.style.width = `${percentage}%`;
+          slider.style.left = `${percentage}%`;
+          slider.setAttribute("aria-valuenow", String(Math.round(percentage)));
+        }
+
+        function onPointerMove(event) {
+          if (!dragging) return;
+          setSliderPosition(event.clientX);
+        }
+
+        slider.addEventListener("pointerdown", (event) => {
+          dragging = true;
+          slider.setPointerCapture(event.pointerId);
+          setSliderPosition(event.clientX);
+        });
+
+        slider.addEventListener("pointermove", onPointerMove);
+        slider.addEventListener("pointerup", () => {
+          dragging = false;
+        });
+        slider.addEventListener("pointercancel", () => {
+          dragging = false;
+        });
+
+        slider.addEventListener("keydown", (event) => {
+          const rect = container.getBoundingClientRect();
+          const currentValue = Number(slider.getAttribute("aria-valuenow")) || 50;
+
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            setSliderPosition(rect.left + ((currentValue - 5) / 100) * rect.width);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            setSliderPosition(rect.left + ((currentValue + 5) / 100) * rect.width);
+          }
+        });
+
+        window.addEventListener("resize", updateAspectRatio);
+        images.forEach((img) => img.addEventListener("load", updateAspectRatio));
+
+        updateAspectRatio();
+        setSliderPosition(container.getBoundingClientRect().left + container.getBoundingClientRect().width * 0.5);
+      })();
+    </script>
+  </body>
 </html>
